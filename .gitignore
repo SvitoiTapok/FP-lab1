@@ -1,0 +1,41 @@
+# F# and .NET
+bin/
+obj/
+.vs/
+.fake/
+packages/
+*.user
+*.suo
+*.userosscache
+*.sln.iml
+.DS_Store
+*.orig
+/publish/
+/.ionide/
+/.vs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../Problem6/6_cycle.fs" />
+    <Compile Include="../Problem6/6_endless_list.fs" />
+    <Compile Include="../Problem6/6_generative.fs" />
+    <Compile Include="../Problem6/6_map.fs" />
+    <Compile Include="../Problem6/6_simple_recursion.fs" />
+    <Compile Include="../Problem6/6_tail_recursion.fs" />
+    <Compile Include="../Problem25/25_cycle.fs" />
+    <Compile Include="../Problem25/25_endless_list.fs" />
+    <Compile Include="../Problem25/25_generate.fs" />
+    <Compile Include="../Problem25/25_map.fs" />
+    <Compile Include="../Problem25/25_simple_recursion.fs" />
+    <Compile Include="../Problem25/25_tail_recursion.fs" />
+    <Compile Include="Utilities.fs" />
+  </ItemGroup>
+</Project>
