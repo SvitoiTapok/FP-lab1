@@ -1,107 +1,63 @@
-module Problem6.Tests
+module Problem25.Tests
 
-open Xunit
-open FsUnit.Xunit
 
-open Problem25.SimpleRecursion
-open Problem25.TailRecursion  
-open Problem25.Cycle
-open Problem25.MapSolution
-open Problem25.Generative
-open Problem25.EndlessList
-
-module Problem6TestData =
-    let testCases = [
-        (3, 22)    // n=3, expected=22
-        (10, 2640) // n=10, expected=2640
-        (100, 25164150) // n=100, expected=25164150
-    ]
-
-module SimpleRecursionTests =
-    
-    [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
-    let ``SimpleRecursion - should calculate correct sum square difference`` (n, expected) =
-        let actual = SimpleRecursion.eulerFunc n
-        actual |> should equal expected
-
-module TailRecursionTests =
-    
-    [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
-    let ``TailRecursion - should calculate correct sum square difference`` (n, expected) =
-        let actual = TailRecursion.eulerFunc n
-        actual |> should equal expected
-
-    [<Fact>]
-    let ``TailRecursion - should work with very large numbers without stack overflow`` () =
-        let actual = TailRecursion.eulerFunc 10000
-        actual |> should be (greaterThan 0)
 
 module CycleTests =
     
-    [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
-    let ``Cycle - should calculate correct sum square difference`` (n, expected) =
-        let actual = Cycle.eulerFunc n
-        actual |> should equal expected
+    [<Theory>] 
+    [<InlineData(3, 12)>]
+    [<InlineData(4, 17)>]  
+    [<InlineData(1000, 4782)>]   
+    let ``Cycle - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
+        let actual = Problem25.Cycle.findFibonacciIndexWithDigits digits
+        Assert.Equal(expectedIndex, actual)
+
+module TailRecursionTests =
+    
+    [<Theory>] 
+    [<InlineData(3, 12)>]
+    [<InlineData(4, 17)>]  
+    [<InlineData(1000, 4782)>]
+    let ``TailRecursion - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
+        let actual = Problem25.TailRecursion.findFibonacciIndexWithDigits digits
+        Assert.Equal(expectedIndex, actual)
 
 module MapSolutionTests =
     
-    [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
-    let ``MapSolution - should calculate correct sum square difference`` (n, expected) =
-        let actual = MapSolution.eulerFunc n
-        actual |> should equal expected
+    [<Theory>] 
+    [<InlineData(3, 12)>]
+    [<InlineData(4, 17)>]  
+    [<InlineData(1000, 4782)>]
+    let ``MapSolution - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
+        let actual = Problem25.Map.findFibonacciIndexWithDigits digits
+        Assert.Equal(expectedIndex, actual)
 
 module GenerativeTests =
     
-    [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
-    let ``Generative - should calculate correct sum square difference`` (n, expected) =
-        let actual = Generative.eulerFunc n
-        actual |> should equal expected
+    [<Theory>] 
+    [<InlineData(3, 12)>]
+    [<InlineData(4, 17)>]  
+    [<InlineData(1000, 4782)>]
+    let ``Generative - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
+        let actual = Problem25.Generative.findFibonacciIndexWithDigits digits
+        Assert.Equal(expectedIndex, actual)
 
 module EndlessListTests =
     
-    [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
-    let ``EndlessList - should calculate correct sum square difference`` (n, expected) =
-        let actual = EndlessList.eulerFunc n
-        actual |> should equal expected
+    [<Theory>] 
+    [<InlineData(3, 12)>]
+    [<InlineData(4, 17)>]  
+    [<InlineData(1000, 4782)>]
+    let ``EndlessList - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
+        let actual = Problem25.EndlessList.findFibonacciIndexWithDigits digits
+        Assert.Equal(expectedIndex, actual)
 
-// module IntegrationTests =
+module SimpleRecursionTests =
     
-//     [<Theory>]
-//     [<InlineData(10)>]
-//     [<InlineData(20)>]
-//     [<InlineData(50)>]
-//     [<InlineData(100)>]
-//     let ``All implementations should return same result for n=%d`` (n) =
-//         let results = [
-//             SimpleRecursion.eulerFunc n
-//             TailRecursion.eulerFunc n  
-//             Cycle.eulerFunc n
-//             MapSolution.eulerFunc n
-//             Generative.eulerFunc n
-//             EndlessList.eulerFunc n
-//         ]
-        
-//         // Все результаты должны быть одинаковыми
-//         let firstResult = List.head results
-//         results |> List.iter (should equal firstResult)
-        
-//     [<Fact>]
-//     let ``All implementations should agree on known Euler answer for n=100`` () =
-//         let eulerAnswer = 25164150
-        
-//         let results = [
-//             SimpleRecursion.eulerFunc 100
-//             TailRecursion.eulerFunc 100
-//             Cycle.eulerFunc 100
-//             MapSolution.eulerFunc 100  
-//             Generative.eulerFunc 100
-//             EndlessList.eulerFunc 100
-//         ]
-        
-//         results |> List.iter (should equal eulerAnswer)
+    [<Theory>] 
+    [<InlineData(3, 12)>]
+    [<InlineData(4, 17)>]  
+    [<InlineData(1000, 4782)>]
+    let ``SimpleRecursion - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
+        let actual = Problem25.SimpleRecursion.findFibonacciIndexWithDigits digits
+        Assert.Equal(expectedIndex, actual)
