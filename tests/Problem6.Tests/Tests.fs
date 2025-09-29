@@ -1,7 +1,6 @@
 module Problem6.Tests
 
 open Xunit
-open FsUnit.Xunit
 
 open Problem6.SimpleRecursion
 open Problem6.TailRecursion  
@@ -20,55 +19,79 @@ module Problem6TestData =
 module SimpleRecursionTests =
     
     [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
+    [<InlineData(1, 0)>]    
+    [<InlineData(2, 4)>]    
+    [<InlineData(3, 22)>]    
+    [<InlineData(10, 2640)>] 
+    [<InlineData(100, 25164150)>] 
     let ``SimpleRecursion - should calculate correct sum square difference`` (n, expected) =
         let actual = SimpleRecursion.eulerFunc n
-        actual |> should equal expected
+        Assert.Equal(expected, actual)
 
 module TailRecursionTests =
     
     [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
+    [<InlineData(1, 0)>]
+    [<InlineData(2, 4)>]
+    [<InlineData(3, 22)>]
+    [<InlineData(10, 2640)>]
+    [<InlineData(100, 25164150)>]
     let ``TailRecursion - should calculate correct sum square difference`` (n, expected) =
         let actual = TailRecursion.eulerFunc n
-        actual |> should equal expected
+        Assert.Equal(expected, actual)
 
     [<Fact>]
     let ``TailRecursion - should work with very large numbers without stack overflow`` () =
         let actual = TailRecursion.eulerFunc 10000
-        actual |> should be (greaterThan 0)
+        Assert.True(actual > 0)
 
 module CycleTests =
     
     [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
+    [<InlineData(1, 0)>]
+    [<InlineData(2, 4)>]
+    [<InlineData(3, 22)>]
+    [<InlineData(10, 2640)>]
+    [<InlineData(100, 25164150)>]
     let ``Cycle - should calculate correct sum square difference`` (n, expected) =
         let actual = Cycle.eulerFunc n
-        actual |> should equal expected
+        Assert.Equal(expected, actual)
 
 module MapSolutionTests =
     
     [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
+    [<InlineData(1, 0)>]
+    [<InlineData(2, 4)>]
+    [<InlineData(3, 22)>]
+    [<InlineData(10, 2640)>]
+    [<InlineData(100, 25164150)>]
     let ``MapSolution - should calculate correct sum square difference`` (n, expected) =
         let actual = MapSolution.eulerFunc n
-        actual |> should equal expected
+        Assert.Equal(expected, actual)
 
 module GenerativeTests =
     
     [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
+    [<InlineData(1, 0)>]
+    [<InlineData(2, 4)>]
+    [<InlineData(3, 22)>]
+    [<InlineData(10, 2640)>]
+    [<InlineData(100, 25164150)>]
     let ``Generative - should calculate correct sum square difference`` (n, expected) =
         let actual = Generative.eulerFunc n
-        actual |> should equal expected
+        Assert.Equal(expected, actual)
 
 module EndlessListTests =
     
     [<Theory>]
-    [<MemberData(nameof(Problem6TestData.testCases))>]
+    [<InlineData(1, 0)>]
+    [<InlineData(2, 4)>]
+    [<InlineData(3, 22)>]
+    [<InlineData(10, 2640)>]
+    [<InlineData(100, 25164150)>]
     let ``EndlessList - should calculate correct sum square difference`` (n, expected) =
         let actual = EndlessList.eulerFunc n
-        actual |> should equal expected
+        Assert.Equal(expected, actual)
 
 // module IntegrationTests =
     

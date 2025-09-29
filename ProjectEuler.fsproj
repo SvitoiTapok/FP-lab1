@@ -1,11 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="src/Problem6/*.fs" />
-    <Compile Include="src/Problem25/*.fs" />
+    <Compile Include="src\Problem6\SimpleRecursion.fs" />
+    <Compile Include="src\Problem6\TailRecursion.fs" />
+    <Compile Include="src\Problem6\Cycle.fs" />
+    <Compile Include="src\Problem6\Map.fs" />
+    <Compile Include="src\Problem6\Generative.fs" />
+    <Compile Include="src\Problem6\EndlessList.fs" />
+    
+    <Compile Include="src\Problem25\SimpleRecursion.fs" />
+    <Compile Include="src\Problem25\TailRecursion.fs" />
+    <Compile Include="src\Problem25\Cycle.fs" />
+    <Compile Include="src\Problem25\Map.fs" />
+    <Compile Include="src\Problem25\Generative.fs" />
+    <Compile Include="src\Problem25\EndlessList.fs" />
   </ItemGroup>
 </Project>

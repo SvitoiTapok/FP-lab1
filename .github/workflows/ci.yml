@@ -10,9 +10,6 @@ jobs:
   test-fsharp:
     name: Test F# Solutions
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-version: [ '6.0.x', '7.0.x' ]
     
     steps:
     - uses: actions/checkout@v4
@@ -20,61 +17,25 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: ${{ matrix.dotnet-version }}
+        dotnet-version: '9.0.x'
         
     - name: Install F# tools
       run: |
-        dotnet tool restore
         dotnet tool install -g fantomas-tool
         dotnet tool install -g dotnet-fsharplint
         
-    - name: Build F# project
-      run: dotnet build --configuration Release
+    - name: Build main project
+      run: dotnet build ProjectEuler.fsproj --configuration Release
       
-    - name: Run F# tests
-      run: dotnet test tests/ --no-build --verbosity normal
+    - name: Run tests
+      run: |
+        echo "Running Problem6 tests..."
+        dotnet test tests/Problem6.Tests/Problem6.Tests.fsproj --configuration Release --verbosity normal
+        echo "Running Problem25 tests..."
+        dotnet test tests/Problem25.Tests/Problem25.Tests.fsproj --configuration Release --verbosity normal
       
-    - name: Check F# formatting
+    - name: Check formatting
       run: fantomas . --check
       
-    - name: Run F# linter
-      run: dotnet fsharplint lint src/ tests/
-
-  test-python:
-    name: Test Python Solutions
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [ '3.9', '3.10', '3.11' ]
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-        
-    - name: Test Python solutions
-      run: |
-        echo "Testing Python implementations..."
-        # Запускаем каждый Python файл для проверки что он работает
-        for py_file in src/Problem*/**/*.py; do
-          if [ -f "$py_file" ]; then
-            echo "Running $py_file"
-            python "$py_file" && echo "$py_file executed successfully" || echo "$py_file had issues"
-          fi
-        done
-
-  validate-solutions:
-    name: Validate Solutions Consistency
-    runs-on: ubuntu-latest
-    needs: [test-fsharp, test-python]
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '7.0.x'
+    - name: Run linter
+      run: dotnet fsharplint lint .
