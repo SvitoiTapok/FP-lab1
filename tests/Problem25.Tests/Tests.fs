@@ -37,7 +37,7 @@ module MapSolutionTests =
     [<InlineData(4, 17)>]  
     [<InlineData(1000, 4782)>]
     let ``MapSolution - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
-        let actual = Map.eulerFunc digits
+        let actual = MapSolution.eulerFunc digits
         Assert.Equal(expectedIndex, actual)
 
 module GenerativeTests =
