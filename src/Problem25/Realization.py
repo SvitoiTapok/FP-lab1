@@ -6,4 +6,4 @@ while True:
     i+=1
     if len(str(x2))==1000:
         break
-print(i)
+assert(i==4782)
