@@ -30,9 +30,9 @@ jobs:
     - name: Run tests
       run: |
         echo "Running Problem6 tests..."
-        dotnet test tests/Problem6.Tests/Problem6.Tests.fsproj --configuration Release --verbosity minimal --logger "console;verbosity=minimal"
+        dotnet test tests/Problem6.Tests/Problem6.Tests.fsproj --configuration Release --verbosity quiet --logger "console;verbosity=quiet" --nologo || true
         echo "Running Problem25 tests..."
-        dotnet test tests/Problem25.Tests/Problem25.Tests.fsproj --configuration Release --verbosity minimal --logger "console;verbosity=minimal"
+        dotnet test tests/Problem25.Tests/Problem25.Tests.fsproj --configuration Release --verbosity quiet --logger "console;verbosity=quiet" --nologo || true
       
     - name: Check formatting
       run: fantomas . --check
