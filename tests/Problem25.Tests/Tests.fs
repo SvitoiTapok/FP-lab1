@@ -18,6 +18,7 @@ module CycleTests =
     [<InlineData(1000, 4782)>]   
     let ``Cycle - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
         let actual = Cycle.eulerFunc digits
+        printfn "Algorithm: Cycle | Input: %d digits | Expected index: %d | Actual index: %d" digits expectedIndex actual
         Assert.Equal(expectedIndex, actual)
 
 module TailRecursionTests =
@@ -28,6 +29,7 @@ module TailRecursionTests =
     [<InlineData(1000, 4782)>]
     let ``TailRecursion - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
         let actual = TailRecursion.eulerFunc digits
+        printfn "Algorithm: TailRecursion | Input: %d digits | Expected index: %d | Actual index: %d" digits expectedIndex actual
         Assert.Equal(expectedIndex, actual)
 
 module MapSolutionTests =
@@ -38,6 +40,7 @@ module MapSolutionTests =
     [<InlineData(1000, 4782)>]
     let ``MapSolution - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
         let actual = MapSolution.eulerFunc digits
+        printfn "Algorithm: MapSolution | Input: %d digits | Expected index: %d | Actual index: %d" digits expectedIndex actual
         Assert.Equal(expectedIndex, actual)
 
 module GenerativeTests =
@@ -48,6 +51,7 @@ module GenerativeTests =
     [<InlineData(1000, 4782)>]
     let ``Generative - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
         let actual = Generative.eulerFunc digits
+        printfn "Algorithm: Generative | Input: %d digits | Expected index: %d | Actual index: %d" digits expectedIndex actual
         Assert.Equal(expectedIndex, actual)
 
 module EndlessListTests =
@@ -58,6 +62,7 @@ module EndlessListTests =
     [<InlineData(1000, 4782)>]
     let ``EndlessList - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
         let actual = EndlessList.eulerFunc digits
+        printfn "Algorithm: EndlessList | Input: %d digits | Expected index: %d | Actual index: %d" digits expectedIndex actual
         Assert.Equal(expectedIndex, actual)
 
 module SimpleRecursionTests =
@@ -68,4 +73,5 @@ module SimpleRecursionTests =
     [<InlineData(1000, 4782)>]
     let ``SimpleRecursion - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
         let actual = SimpleRecursion.eulerFunc digits
+        printfn "Algorithm: SimpleRecursion | Input: %d digits | Expected index: %d | Actual index: %d" digits expectedIndex actual
         Assert.Equal(expectedIndex, actual)
