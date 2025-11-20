@@ -8,6 +8,7 @@ open Problem25.Cycle
 open Problem25.MapSolution
 open Problem25.Generative
 open Problem25.EndlessList
+open Problem25.Match
 
 
 module CycleTests =
@@ -74,4 +75,15 @@ module SimpleRecursionTests =
     let ``SimpleRecursion - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
         let actual = SimpleRecursion.eulerFunc digits
         printfn "Algorithm: SimpleRecursion | Input: %d digits | Expected index: %d | Actual index: %d" digits expectedIndex actual
+        Assert.Equal(expectedIndex, actual)
+
+module MatchTests =
+    
+    [<Theory>] 
+    [<InlineData(3, 12)>]
+    [<InlineData(4, 17)>]  
+    [<InlineData(1000, 4782)>]   
+    let ``Match - should find first Fibonacci number with N digits`` (digits: int, expectedIndex: int) =
+        let actual = Match.eulerFunc digits
+        printfn "Algorithm: Match | Input: %d digits | Expected index: %d | Actual index: %d" digits expectedIndex actual
         Assert.Equal(expectedIndex, actual)

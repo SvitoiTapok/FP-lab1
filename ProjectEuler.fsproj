@@ -19,5 +19,6 @@
     <Compile Include="src\Problem25\Map.fs" />
     <Compile Include="src\Problem25\Generative.fs" />
     <Compile Include="src\Problem25\EndlessList.fs" />
+    <Compile Include="src\Problem25\Match.fs" />
   </ItemGroup>
 </Project>
