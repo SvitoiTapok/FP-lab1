@@ -5,4 +5,4 @@ let rec eulerFunc n =
         match b with
         | _ when b.ToString().Length = n -> fibNumber
         | _ -> fib b (a+b) (fibNumber+1) n
-    fib 1L 1L 2 n
+    fib 1I 1I 2 n
